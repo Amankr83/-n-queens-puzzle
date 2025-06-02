@@ -8,14 +8,12 @@ vector<vector<string>> NQueensSolver::solveNQueens(int n) {
     return solutions;
 }
 
-void NQueensSolver::backtrack(int row, int n, vector<string>& board,
-                              vector<vector<string>>& solutions,
-                              vector<bool>& cols, vector<bool>& diag1, vector<bool>& diag2) {
+void NQueensSolver::backtrack(int row, int n, vector<string>& board, vector<vector<string>>& solutions,
+                               vector<bool>& cols, vector<bool>& diag1, vector<bool>& diag2) {
     if (row == n) {
         solutions.push_back(board);
         return;
     }
-
     for (int col = 0; col < n; ++col) {
         if (cols[col] || diag1[row + col] || diag2[row - col + n - 1])
             continue;
